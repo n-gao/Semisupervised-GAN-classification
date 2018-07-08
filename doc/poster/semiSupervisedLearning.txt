@@ -1,0 +1,13 @@
+﻿One major reason for the recent success of deep CNNs is the availability of huge labeled datasets, such as ImageNet, which are expansive to build. Semi-supervised learning tries to establish an approach for big datasets that have not been labeled yet. It encompasses methods that are able to learn classification from datasets with sparse labels only.
+We tried to achieve this with GANs. In theory, their discriminators should learn an effective feature representation of images during training without labels. The discriminator's first layers may therefore be reused for a classification task, learned on a labeled subset of the data. Results on CIFAR-10 are shown below:
+
+Alternative: 
+
+We tried to realize semi-supervised with GANs. In theory, their discriminators should learn an effective feature representation of images during training without labels. The discriminator's first layers may therefore be reused for a classification task, learned on a labeled subset of the data. Results on CIFAR-10 are shown below:
+<< Graph >>
+
+Subtitle Graph:
+
+Accuracy, with layers 4 and 5 of the discriminator relearned. Training was done on 4000 labeled examples from CIFAR-10. The GAN was previously trained for different number of epochs on the whole CIFAR-10 training set. Accuracy reported on the test set of CIFAR-10.
+
+

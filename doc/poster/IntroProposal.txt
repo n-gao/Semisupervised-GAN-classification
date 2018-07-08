@@ -1,0 +1,7 @@
+Introduction:
+
+Investigate new methods to train GAN
+Done on MNIST and CIFAR-10
+Two evaluation metrics: visual appeal and classification error in semi supervised training
+
+We investigated several ideas to improve GAN training: Conditional GAN [Source?], Feature Matching and Mini-batch Discrimination [OpenAI]. We applied those ideas in the training of DCGAN [Source?] on MNIST as well as CIFAR-10 and evaluated the results visually (for MNIST) and by achievable results in semi-supervised learning (for CIFAR-10). Trials on MNIST showed resonable outcomes with all ideas, but espacially cGAN, and semi-supervised learning on CIFAR-10 succeeded with all but cGAN with mostly similar accuracy.

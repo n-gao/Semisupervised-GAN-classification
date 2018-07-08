@@ -1,0 +1,99 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Include other packages here, before hyperref.
+
+% If you comment hyperref and then uncomment it, you should delete
+% egpaper.aux before re-running latex.  (Or just hit 'q' on the first latex
+% run, let it finish, and you should be clear).
+\usepackage[pagebackref=true,breaklinks=true,letterpaper=true,colorlinks,bookmarks=false]{hyperref}
+
+\cvprfinalcopy % *** Uncomment this line for the final submission
+
+\def\cvprPaperID{****} % *** Enter the CVPR Paper ID here
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+
+% Pages are numbered in submission mode, and unnumbered in camera-ready
+\ifcvprfinal\pagestyle{empty}\fi
+\begin{document}
+
+%%%%%%%%% TITLE
+\title{Enhancing Classification Performance through Example Generation}
+
+\author{
+    Anna Baumeister (w270)\\
+    {\tt\small anna.baumeister@tum.de}
+  \and
+    Nicholas Gao (w348)\\
+    {\tt\small nicholas.gao@tum.de}
+  \and
+    Matthias Mayer (w213)\\
+    {\tt\small matthias.mayer@tum.de}
+  \and
+    Fr\'{e}d\'{e}ric Rackwitz (w515)\\
+    {\tt\small rackwitz@in.tum.de}
+  \and
+    Yannick Spreen (w231)\\
+    {\tt\small y.spreen@tum.de}
+}
+
+
+\maketitle
+%\thispagestyle{empty}
+
+%
+% Proposal I
+%
+\section*{Project Proposal}
+Evidence shows, that GANs can provide a viable method to enhance classification performance and accuracy by giving the NN more examples to train on. We find this approach very promising and want to explore further into this direction. The field for this enhancement is broad, and we want to try some new approaches on the CIFAR-10 and 100 datasets.
+
+\section{Introduction}
+    While there were numerous generative networks developing in the past, recent results promise new ways of generating examples which improve training even more.
+    Our goal is to fundamentally understand generative models. With this knowledge we will be able to assess the performance of semi-supervised learning for CIFAR-10/100.
+    These datasets have not been explored as deeply yet in recent research, so we hope to gain additional insight into the topic.
+
+    \subsection{Related Works}\label{sec:rel}
+        \begin{itemize}
+            \item Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN) \cite{DBLP:journals/corr/RadfordMC15}
+            \item An introduction into GANs: Generative adversarial networks \cite{goodfellow2016nips}
+            %\item An introduction into VAEs: Auto-encoding variational bayes \cite{kingma2013auto}
+            %\item An introduction into PixelRNNs: Pixel recurrent neural networks \cite{oord2016pixel}
+            \item Improved techniques for training GANs by OpenAI \cite{salimans2016improved}
+            \item Together with the blog-post-writeup \cite{blog1}
+        \end{itemize}
+
+\section{Dataset}
+    \begin{itemize}
+        %\item We want to start of with MNIST \cite{lecun1998mnist}. This dataset has shown very good performance with the methodology described above and received $ >99\% $ accuracy with only 10 non-generated examples.
+        \item CIFAR-10 \cite{krizhevsky2014cifar}, a labeled dataset with natural images. It was so far used less frequently in training GANs but could prove quite potent due to small image sizes (short training time) and available labels which can help the discriminator learn.
+        \item CIFAR-100 \cite{krizhevsky2014cifar} is an advanced test for our newly developed skills. It provides a lot of classes which in turn require a lot of different models for generation. It also contains a lot fewer examples per class than other sets, so generation of new datapoints is an even bigger incentive for CIFAR-100 than for CIFAR-10 for example.
+    \end{itemize}
+
+\section{Methodology}
+    Since we do not have much experience in the field of generative neural networks, if any at all, we need to familiarize ourself with the topic first. We will look into DCGANs to generate new data for CIFAR-10 training. Afterwards we will attempt to use our new knowledge to enhance classification performance on the bigger CIFAR-100 dataset.
+    \begin{enumerate}
+        \item Apply DCGAN to CIFAR-10 to generate new images from the 10 classes %VAEs,  and possibly PixelRNNs to different datasets
+        \item Apply extensions from \cite{salimans2016improved} to our GAN, such as feature matching and minibatch discrimination
+        \item Recover classifier from discriminator part of the different CIFAR-10 GANs
+        \item Investigate amount of labeled data needed and utility of proposed extensions to train a classifier for CIFAR-10
+        \item Scale to CIFAR-100
+    \end{enumerate}
+
+%\newpage
+\section{Outcome}
+    Our final goal would be to have trained a network which has good performance in classifying CIFAR-100 images, possibly without giving it the full labeled dataset. In theory it should perform better than usual training without GAN generation of additional examples on an equal amount of labeled data. 
+
+    In practice, we cannot assume that we will surely reach this goal in time, since it's been shown to be difficult. For this reason, we will look into CIFAR-10 first.
+
+{\small
+\bibliographystyle{ieee}
+\bibliography{bib}
+}
+
+\end{document}

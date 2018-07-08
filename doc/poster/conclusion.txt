@@ -1,0 +1,3 @@
+Conclusion
+
+GANs aren't easy. We quickly found that our original idea of enhancing small datasets to improve classification learning is only feasible within the limits of our application of semi supervised learning. The augmentations we tried to enhance the GANs performance lead to the expected results. More training time and optimization of hyperparameters might lead to big improvemnets in image quality. Unfortunately this exceeds the available compute time for this project. But: We see the power of GANs and presume future advancements using GANs.
